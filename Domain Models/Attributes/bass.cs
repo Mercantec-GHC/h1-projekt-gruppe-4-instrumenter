@@ -10,5 +10,7 @@ namespace Objects
             Electric,
             Half_Acoustic,
         }
+        public int NumberOfStrings;
+        public int NumberOfFrets;
     }
 }

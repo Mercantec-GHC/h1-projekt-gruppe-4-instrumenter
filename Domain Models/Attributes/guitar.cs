@@ -11,5 +11,7 @@ namespace Objects
             Half_Acoustic,
             Western_guitar,
         }
+        public int NumberOfStrings;
+        public int NumberOfFrets;
     }
 }

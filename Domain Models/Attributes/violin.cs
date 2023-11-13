@@ -9,5 +9,6 @@ namespace Objects
             Electric,
             Acoustic,
         }
+        public int NumberOfStrings;
     }
 }

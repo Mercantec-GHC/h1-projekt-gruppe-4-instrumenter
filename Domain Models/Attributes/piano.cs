@@ -11,5 +11,6 @@ namespace Objects
             Digital_Piano,
             Organ,
         }
+        public int NumberOfKeys;
     }
 }
