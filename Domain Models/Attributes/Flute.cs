@@ -1,6 +1,6 @@
 using System;
 
-namespace Objects
+namespace JamJunkie
 {
     class flute
     {

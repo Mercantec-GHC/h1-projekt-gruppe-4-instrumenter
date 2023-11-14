@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.Metrics;
 
-namespace Objects
+namespace JamJunkie
 {
     public class Filter
     {
