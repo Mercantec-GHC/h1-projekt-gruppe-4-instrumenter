@@ -2,11 +2,11 @@ using System;
 
 namespace Objects
 {
-    public class Mom
+    public class Placeholder
     {
-        public void Gay()
+        public void Placeholder1()
         {
-            Console.WriteLine("Gay mom");
+            Console.WriteLine("Placeholder1");
         }
     }
 }
