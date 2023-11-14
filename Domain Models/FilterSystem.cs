@@ -2,11 +2,12 @@ using System;
 
 namespace Objects
 {
-    public class Yes
+    public class Filter
     {
-        public void No()    
+        itemForSale itemForSale;
+        public void FilterInstrument()    
         {
-            Console.WriteLine("No");
+            Console.WriteLine(itemForSale);
         }
     }
 }
