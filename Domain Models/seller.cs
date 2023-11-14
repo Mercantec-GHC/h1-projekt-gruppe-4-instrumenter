@@ -12,9 +12,9 @@ namespace Objects
 
         public itemForSale() { }
 
-        public itemForSale(string sellerName, string productName, string phone, string email, string address, int price)
+        public itemForSale(string UserName, string productName, string phone, string email, string address, int price)
         {
-            SellerName = sellerName;
+            UserName = UserName;
             ProductName = productName;
             Phone = phone;
             Email = email;
