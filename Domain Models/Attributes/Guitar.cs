@@ -2,13 +2,14 @@ using System;
 
 namespace Objects
 {
-    class bass
+    class guitar
     {
-        public enum TypeBass
+        public enum TypeGuitar
         {
             Acoustic,
             Electric,
             Half_Acoustic,
+            Western_guitar,
         }
         public int NumberOfStrings;
         public int NumberOfFrets;
