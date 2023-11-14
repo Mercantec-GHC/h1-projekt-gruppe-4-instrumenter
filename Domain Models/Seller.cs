@@ -5,20 +5,17 @@ namespace Objects
     public class itemForSale
     { 
         public string SellerName {get;set;}
-        public string ProductName {get;set;}
         public string Phone {get;set;}
         public string Email {get;set;}
-        public double Price {get;set;}
+        public string UserName { get; set; }
 
         public itemForSale() { }
 
-        public itemForSale(string UserName, string productName, string phone, string email, string address, int price)
+        public itemForSale(string userName, string phone, string email)
         {
-            UserName = UserName;
-            ProductName = productName;
+            UserName = userName;
             Phone = phone;
             Email = email;
-            Price = price;
         }
         public void PhoneCall()
         {
@@ -35,11 +32,9 @@ namespace Objects
         {
             itemForSale John = new itemForSale
             {
-                SellerName = "John",
-                ProductName = "big guitar!!",
+                UserName = "John",
                 Phone = "+45 12 34 56 78",
                 Email = "john@gmail.com",
-                Price = 200
             };
             John.PhoneCall();
             John.SendMail();
