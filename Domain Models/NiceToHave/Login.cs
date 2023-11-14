@@ -1,6 +1,6 @@
 using System;
 
-namespace Objects
+namespace JamJunkie
 {
     public class Placeholder
     {
