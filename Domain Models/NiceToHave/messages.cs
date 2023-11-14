@@ -2,11 +2,11 @@ using System;
 
 namespace Objects
 {
-    public class Hot
+    public class Placeholder2
     {
-        public void Milf()
+        public void Placeholder3()
         {
-            Console.WriteLine("Milf");
+            Console.WriteLine("Placeholder3");
         }
     }
 }
