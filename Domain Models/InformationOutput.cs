@@ -2,11 +2,12 @@ using System;
 
 namespace Objects
 {
-    public class Help
+    public class BuyOffer
     {
-        public void Helping()
+        MakeOffer OfferMade;
+        public void OfferToBuy()
         {
-            Console.WriteLine("No help");
+            Console.WriteLine("View some of the specialities to this product");
         }
     }
 }

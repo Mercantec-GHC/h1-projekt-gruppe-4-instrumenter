@@ -2,15 +2,15 @@
 
 namespace Objects
 {
-    public class itemForSale
+    public class ItemForSale
     { 
         public string Phone {get;set;}
         public string Email {get;set;}
         public string UserName { get; set; }
 
-        public itemForSale() { }
+        public ItemForSale() { }
 
-        public itemForSale(string userName, string phone, string email)
+        public ItemForSale(string userName, string phone, string email)
         {
             UserName = userName;
             Phone = phone;
@@ -29,7 +29,7 @@ namespace Objects
     {
         static void Main()
         {
-            itemForSale John = new itemForSale
+            ItemForSale John = new ItemForSale
             {
                 UserName = "John",
                 Phone = "+45 12 34 56 78",

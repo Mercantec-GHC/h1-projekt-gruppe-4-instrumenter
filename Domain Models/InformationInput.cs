@@ -2,11 +2,12 @@ using System;
 
 namespace Objects
 {
-    public class Hi
+    public class MakeOffer
     {
-        public void Hello()
+        ItemForSale ítemToSell;
+        public void OfferToMake()
         {
-            Console.WriteLine("Hello!");
+            Console.WriteLine("Make your offer");
         }
     }
 }

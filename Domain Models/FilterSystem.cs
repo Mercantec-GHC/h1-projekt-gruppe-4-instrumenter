@@ -5,7 +5,7 @@ namespace Objects
 {
     public class Filter
     {
-        itemForSale itemForSale;
+        ItemForSale itemForSale;
         public void FilterInstrument()
         {
             Console.WriteLine(itemForSale);
