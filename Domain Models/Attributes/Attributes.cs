@@ -19,5 +19,6 @@ namespace Objects
         public string CountryOfOrigin;
         public double Price { get; set; }
         public string ProductName { get; set; }
+        public string ItemDescription { get; set; }
     }
 }
