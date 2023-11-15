@@ -1,0 +1,5 @@
+Goal for wednesday finish all pages. Afterwards begin work on C# code.
+
+Create Home screen and search screen but primarily focusing on HTML and CSS instead of C#.
+Possible link to add listing also that it can be seen on the website itself.
+
