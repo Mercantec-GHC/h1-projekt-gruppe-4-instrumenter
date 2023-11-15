@@ -1,58 +1,7 @@
 using System;
-using System.Collections.Generic;
 
 namespace JamJunkie
 {
-    public class ItemForSale
-    {
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string UserName { get; set; }
-
-        public ItemForSale() { }
-
-        public ItemForSale(string userName, string phone, string email)
-        {
-            UserName = userName;
-            Phone = phone;
-            Email = email;
-        }
-
-        public void PhoneCall()
-        {
-            Console.WriteLine("You have called the seller.");
-        }
-
-        public void SendMail()
-        {
-            Console.WriteLine("You have sent an email to the seller.");
-        }
-    }
-
-    public class Instrument
-    {
-        public enum InstrumentType
-        {
-            Guitar,
-            Bass,
-            Violin,
-            Flute,
-            Piano,
-            Drums
-        }
-
-        public InstrumentType Type { get; set; }
-        public string Brand { get; set; }
-        public int Year { get; set; }
-        public string Colour { get; set; }
-        public string Material { get; set; }
-        public string CountryOfOrigin { get; set; }
-        public double Price { get; set; }
-        public string ProductName { get; set; }
-        public string ItemDescription { get; set; }
-        public string ItemCondition { get; set; }
-    }
-
     public class InstrumentInventory
     {
         private List<Instrument> instruments;
@@ -113,24 +62,6 @@ namespace JamJunkie
         public List<Instrument> GetAllInstruments()
         {
             return instruments;
-        }
-
-        // Implement other methods for filtering instruments based on user preferences
-    }
-
-    class Program
-    {
-        static void Main()
-        {
-            // Usage examples
-            InstrumentInventory inventory = new InstrumentInventory();
-
-            // Get all instruments
-            List<Instrument> allInstruments = inventory.GetAllInstruments();
-            foreach (Instrument inst in allInstruments)
-            {
-                Console.WriteLine($"Instrument: {inst.ProductName}, Type: {inst.Type}, Price: {inst.Price}");
-            }
         }
     }
 }
