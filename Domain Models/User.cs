@@ -25,7 +25,7 @@ namespace JamJunkie
             Console.WriteLine("You have sent an email to the seller.");
         }
     }
-    class Program
+    class Users
     {
         static void Main()
         {
