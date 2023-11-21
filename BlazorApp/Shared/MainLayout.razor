@@ -3,7 +3,6 @@
 <PageTitle>BlazorApp</PageTitle>
 
 <div class="page">
-
     <main>
         <div class="top-row px-4 d-flex align-items-center justify-content-between">
             <div class="logo">
@@ -11,18 +10,21 @@
                 Logo
             </div>
 
-            <form class="align-items-center">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class="d-flex align-items-center flex-grow-1 justify-content-center">
+                <form class="d-flex align-items-center">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
 
-            <div class="d-flex align-items-center">
-                <div class="nav-options d-flex align-items-center justify-content-between">
-                    <a href="#">Add Listing</a>
-                    <a href="#">Message</a>
-                    <a href="login">Log Ind</a>
-                </div>
-
+            <div class="nav-options d-flex align-items-center justify-content-between">
+                <a href="login">Log Ind</a>
+            </div>
+            <div class="nav-options d-flex align-items-center justify-content-between">
+                <a href="#">Add Listing</a>
+            </div>
+            <div class="nav-options d-flex align-items-center justify-content-between">
+                <a href="#">Message</a>
             </div>
         </div>
         
