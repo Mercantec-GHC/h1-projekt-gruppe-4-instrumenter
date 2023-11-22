@@ -31,16 +31,14 @@ main {
         text-overflow: ellipsis;
     }
 .logo {
-    /* Add styling for your logo */
     margin-right: auto;
 }
 .nav-options {
-    /* Style the box for navigation options */
-    display: flex;
-    gap: 10px;
-    background-color: #ccc; /* Change to desired background color */
-    padding: 8px 12px; /* Adjust padding as needed */
-    border-radius: 5px; /* Add rounded corners */
+    background-color: #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 4px;
+    text-align: left;
 }
 
 @media (max-width: 640.98px) {
