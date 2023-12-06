@@ -1,3 +1,4 @@
+@using BlazorApp.Data
 @page "/message"
 
 <PageTitle>Messages</PageTitle>
@@ -6,3 +7,43 @@
 <h2>We're currently working on this page, check back later.</h2>
 
 <p>Hello World!</p>
+
+<h3>hello World!</h3>
+
+<EditForm Model="@test" OnValidSubmit="SubmitForm">
+
+    <label>Name</label>
+    <InputText @bind-Value="test.Name" />
+
+    <br />
+    <br />
+
+    <label>Age</label>
+    <InputNumber @bind-Value="test.Age" />
+
+    <br />
+    <br />
+
+    <label>Description</label>
+    <InputText @bind-Value="test.Description" />
+
+    <br />
+    <br />
+
+    <label>Does this work?</label>
+    <InputCheckbox @bind-Value="test.Works" />
+
+    <button type="submit">Submit</button>
+
+</EditForm>
+
+@inject Data.AppDbContext dbContext
+@code {
+    public Test test = new Test();
+
+    private async Task SubmitForm()
+    {
+        dbContext.Tests.Add(test);
+        await dbContext.SaveChangesAsync();
+    }
+}
