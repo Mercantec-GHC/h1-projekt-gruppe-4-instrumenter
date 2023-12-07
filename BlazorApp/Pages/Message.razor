@@ -31,7 +31,7 @@
     <br />
 
     <label>Does this work?</label>
-    <InputCheckbox @bind-Value="test.Works" />
+    <InputCheckbox @bind-Value="test.works" />
 
     <button type="submit">Submit</button>
 
@@ -50,7 +50,6 @@
 
 </EditForm>
 
-@inject Data.AppDbContext dbContext
 @code {
     public Test test = new Test();
 
@@ -58,19 +57,6 @@
     public bool error = false;
 
     private async Task SubmitForm()
-    {
-        saved = false;
-        error = false;
-        try
-        {
-            dbContext.Tests.Add(test);
-            saved = true;
-        }
-        catch (Exception)
-        {
-            error = true;
-            throw;
-        }
-        
+    {   
     }
 }
