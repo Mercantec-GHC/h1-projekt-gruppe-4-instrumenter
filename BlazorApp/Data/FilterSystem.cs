@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Metrics;
+using BlazorApp.Model;
 
 namespace JamJunkie
 {

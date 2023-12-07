@@ -1,4 +1,4 @@
-﻿namespace BlazorApp.Data
+﻿namespace BlazorApp.Model
 {
     public class Test
     {
