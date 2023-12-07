@@ -10,67 +10,7 @@
 
 <h3>hello World!</h3>
 
-<EditForm Model="@test" OnValidSubmit="SubmitForm">
-
-    <label>Name</label>
-    <InputText @bind-Value="test.Name" />
-
-    <br />
-    <br />
-
-    <label>Age</label>
-    <InputNumber @bind-Value="test.Age" />
-
-    <br />
-    <br />
-
-    <label>Description</label>
-    <InputText @bind-Value="test.Description" />
-
-    <br />
-    <br />
-
-    <label>Does this work?</label>
-    <InputCheckbox @bind-Value="test.Works" />
-
-    <button type="submit">Submit</button>
-
-    <br />
-    <br />
-
-    @if (saved)
-    {
-        <p>The test is created</p>
-    }
-
-    @if (error)
-    {
-        <p>Something went wrong</p>
-    }
-
-</EditForm>
-
-@inject Data.AppDbContext dbContext
 @code {
-    public Test test = new Test();
-
-    public bool saved = false;
-    public bool error = false;
-
-    private async Task SubmitForm()
-    {
-        saved = false;
-        error = false;
-        try
-        {
-            dbContext.Tests.Add(test);
-            saved = true;
-        }
-        catch (Exception)
-        {
-            error = true;
-            throw;
-        }
-        
+   
     }
 }
