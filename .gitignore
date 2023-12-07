@@ -363,5 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # appsettings.json
-BlazorApp\appsettings.json
+BlazorApp/appsettings.json
 
