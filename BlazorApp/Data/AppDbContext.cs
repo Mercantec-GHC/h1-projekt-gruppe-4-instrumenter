@@ -1,19 +1,95 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace BlazorApp.Data
 {
-    public class AppDbContext : DbContext
+    public static class DatabaseHandler
     {
-        protected readonly IConfiguration Configuration;
+        private static SqlConnection _connection; //Ændre senere
+        private static bool _isConnected = false; //Ændre senere
 
-        public AppDbContext(IConfiguration configuration)
+        public static bool IsConnected { get => _isConnected; set => _isConnected = value; }
+
+        public static bool Create(string? connectionstring = "none")
         {
-            Configuration = configuration;
+            if (connectionstring == "none")
+                connectionstring = Environment.GetEnvironmentVariable("connectionstring");
+
+            try
+            {
+                _connection = new SqlConnection(connectionstring);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+
+            return true;
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+
+        private static bool Connect()
         {
-            options.UseSqlServer(Configuration.GetConnectionString("DbConnectionString"));
+            if (_connection == null)
+                Create();
+
+            try
+            {
+                _connection.Open();
+                IsConnected = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+
+            return true;
         }
-        public DbSet<Test> Tests { get; set; }
+
+        private static bool Disconnect()
+        {
+            try
+            {
+                _connection.Close();
+                IsConnected = false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+
+            return true;
+        }
+
+        public static string GetDBEntry(int pKey, string tablename)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static string GetDatabaseEntries()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void TryAddDBEntry()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void TryRemoveDBEntry()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool TryUpdateDBEntry()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
