@@ -1,11 +1,46 @@
-@using BlazorApp.Data
 @page "/message"
+@inject IConfiguration Configuration
+@using Microsoft.Data.SqlClient
 
-<PageTitle>Messages</PageTitle>
+<PageTitle>Counter</PageTitle>
 
-<h>Work in progress</h>
-<h2>We're currently working on this page, check back later.</h2>
+<h1>Counter</h1>
 
-<p>Hello World!</p>
+<input type="text" @bind="firstName" />
+<br />
+<input type="text" @bind="lastName" />
+<br />
+<br />
+<button class="btn btn-primary" @onclick="Click">Click me</button>
 
-<h3>hello World!</h3>
+@code {
+
+    private string firstName = "John";
+    private string lastName = "Doe";
+
+    private void Click()
+    {
+        InsertData(firstName, lastName);
+    }
+
+    public void InsertData(string firstName, string lastName)
+    {
+        string connectionString = Configuration.GetConnectionString("DbConnectionString");
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string sql = "INSERT INTO Persons (FirstName, LastName) VALUES (@FirstName, @LastName)";
+
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@FirstName", firstName);
+                command.Parameters.AddWithValue("@LastName", lastName);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+
+}
