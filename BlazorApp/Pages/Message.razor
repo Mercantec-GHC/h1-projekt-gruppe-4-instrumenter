@@ -1,4 +1,4 @@
-@    using BlazorApp.Data
+@using BlazorApp.Data
 @page "/message"
 
 <PageTitle>Messages</PageTitle>
@@ -64,7 +64,6 @@
         try
         {
             dbContext.Tests.Add(test);
-            await dbContext.SaveChangesAsync();
             saved = true;
         }
         catch (Exception)
