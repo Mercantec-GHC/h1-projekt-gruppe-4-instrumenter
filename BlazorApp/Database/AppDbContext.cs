@@ -8,7 +8,6 @@ using Microsoft.Data.SqlClient;
 
 namespace BlazorApp.Data
 {
-    public class AppDbContext {}
     public static class DatabaseHandler
     {
         private static SqlConnection _connection; //Ændre senere
