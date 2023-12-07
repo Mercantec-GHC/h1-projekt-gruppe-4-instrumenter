@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorApp.Data
 {
+    public class AppDbContext : DbContext { }
     public static class DatabaseHandler
     {
         private static SqlConnection _connection; //Ændre senere
