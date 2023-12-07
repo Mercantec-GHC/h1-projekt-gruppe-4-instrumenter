@@ -4,7 +4,7 @@ namespace JamJunkie
 {
     public class MakeOffer
     {
-        ItemForSale ítemToSell;
+        ItemForSale itemToSell;
         public void OfferToMake()
         {
             Console.WriteLine("Make your offer");
