@@ -364,4 +364,5 @@ FodyWeavers.xsd
 
 # Project specifics ignores
 
-
+/BlazorApp/appsettings.json
+/BlazorApp/appsettings.json
