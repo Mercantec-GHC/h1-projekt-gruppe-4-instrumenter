@@ -11,19 +11,23 @@
 <input type="text" placeholder="Enter your last name" @bind="lastName" />
 <br />
 <br />
+<InputFile OnChange="HandleFileSelect" />
+<br />
+<br />
 <button class="btn btn-primary" @onclick="Click">Click me</button>
 
 @code {
 
     private string firstName = "";
     private string lastName = "";
+    private byte[] photo;
 
     private void Click()
     {
-        InsertData(firstName, lastName);
+        InsertData(firstName, lastName, photo);
     }
 
-    public void InsertData(string firstName, string lastName)
+    public void InsertData(string firstName, string lastName, byte[] photo)
     {
         string connectionString = Configuration.GetConnectionString("DbConnectionString");
 
@@ -31,15 +35,25 @@
         {
             connection.Open();
 
-            string sql = "INSERT INTO Persons (FirstName, LastName) VALUES (@FirstName, @LastName)";
+            string sql = "INSERT INTO Persons (FirstName, LastName, Photo) VALUES (@FirstName, @LastName, @Photo)";
 
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@FirstName", firstName);
                 command.Parameters.AddWithValue("@LastName", lastName);
+                command.Parameters.AddWithValue("@Photo", photo);
 
                 command.ExecuteNonQuery();
             }
+        }
+    }
+    private async Task HandleFileSelect(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        using (var memoryStream = new MemoryStream())
+        {
+            await file.OpenReadStream().CopyToAsync(memoryStream);
+            photo = memoryStream.ToArray();
         }
     }
 
