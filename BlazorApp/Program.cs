@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<CustomerService>();
+builder.Services.AddSingleton<CustomerDataAccessLayer>();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Data;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,9 +11,12 @@ namespace BlazorApp.Data
 {
     public class CustomerDataAccessLayer
     {
-        // string connectionString = "Put Your Connection string here";
-        string connectionString = "DbConnectionString;";
-        //To View all Customers details    
+        private readonly string connectionString;
+
+        public CustomerDataAccessLayer(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DbConnectionString");
+        }
         public IEnumerable<CustomerInfo> GetAllCustomers()
         {
             List<CustomerInfo> lstCustomer = new List<CustomerInfo>();

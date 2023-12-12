@@ -1,6 +1,7 @@
-﻿@page "/login"
+﻿@page "/listingAdd"
 @using BlazorApp.Data
 @inject CustomerService ObjCustomService
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
 <NavLink class="nav-link" href="AddCustomer">
     <span class="oi oi-plus" aria-hidden="true"></span> Add New
@@ -50,7 +51,7 @@ else
     List<CustomerInfo> objCtmr;
     protected override async Task OnInitializedAsync()
     {
-        CustomerService objCS = new CustomerService();
+        CustomerService objCS = new CustomerService(Configuration);
         objCtmr = await Task.Run(() => objCS.GetCustomer());
     }
 }

@@ -4,9 +4,9 @@
     {
         private readonly CustomerDataAccessLayer objCustomerDAL; // Declare objCustomerDAL
 
-        public CustomerService()
+        public CustomerService(IConfiguration configuration)
         {
-            objCustomerDAL = new CustomerDataAccessLayer(); // Instantiate objCustomerDAL
+            objCustomerDAL = new CustomerDataAccessLayer(configuration); // Instantiate objCustomerDAL
         }
         public string Create(CustomerInfo objCustomer)
         {
