@@ -1,0 +1,73 @@
+﻿@page "/addListing"
+@using BlazorApp.Data
+@inject InstrumentService ObjCustomService
+@inject NavigationManager NavigationManager
+<h2>Create Customer</h2>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Name" class="control-label">Name</label>
+                <input for="Name" class="form-control" @bind="@objCI.Name" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeInstrument" class="control-label"></label>
+                <select @bind="@objCI.TypeInstrument" class="form-control">
+                    <option value="">-- Select type of instrument --</option>
+                    <option value="Bass">Bass</option>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Drums">Drums</option>
+                    <option value="Flute">Flute</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Violin">Violin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Condition" class="control-label">Condition</label>
+                <input for="Condition" class="form-control" @bind="@objCI.Condition" />
+            </div>
+            <div class="form-group">
+                <label for="Price" class="control-label">Price</label>
+                <input for="Price" class="form-control" @bind="@objCI.Price" />
+            </div>
+            <div class="form-group">
+                <label for="Description" class="control-label">Description</label>
+                <input for="Description" class="form-control" @bind="@objCI.Description" />
+            </div>
+            <div class="form-group">
+                <label for="Year" class="control-label">Year</label>
+                <input for="Year" class="form-control" @bind="@objCI.Year" />
+            </div>
+            <div class="form-group">
+                <label for="Color" class="control-label">Color</label>
+                <input for="Color" class="form-control" @bind="@objCI.Color" />
+            </div>
+            <div class="form-group">
+                <label for="Material" class="control-label">Material</label>
+                <input for="Material" class="form-control" @bind="@objCI.Material" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" @onclick="@CreateInstrument" class="btn btn-primary" value="Save" />
+                <input type="button" @onclick="@Cancel" class="btn btn-primary" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    InstrumentInfo objCI = new InstrumentInfo();
+    protected void CreateInstrument()
+    {
+        ObjCustomService.Create(objCI);
+        NavigationManager.NavigateTo("listings");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("listings");
+    }
+}   
