@@ -1,0 +1,14 @@
+---bass---
+
+INSERT INTO listing (Name, TypeInstrument, Condition, Price, Description, Year, Color, Material)
+VALUES 
+('Music Man StingRay Bass', 'Bass', 'Used', 1200, 'The Music Man StingRay Bass is known for its powerful tone and playability. Whether you''re into funk, rock, or jazz, this bass delivers in style.', 2017, 'Black', 'Ash and Maple'),
+('Ibanez Soundgear 5-String Bass', 'Bass', 'New', 600, 'Get the low-end groove with the Ibanez Soundgear Bass. With a sleek design and extended range, it''s a great choice for bassists exploring different sounds.', 2015, 'Metallic Red', 'Mahogany and Rosewood'),
+('Fender Jazz Bass', 'Bass', 'Used', 900, 'The Fender Jazz Bass is a classic choice for its versatile sound and comfortable playability. A staple in various music genres for decades.', 2018, 'Ocean Turquoise', 'Alder and Maple'),
+('Gibson Thunderbird Bass', 'Bass', 'New', 1500, 'The Gibson Thunderbird Bass is a bold and iconic instrument with a deep, resonant tone. Perfect for bassists who want to make a statement.', 2022, 'Ebony', 'Mahogany and Rosewood'),
+('Sire Marcus Miller V7 4-String Bass', 'Bass', 'Used', 800, 'The Sire Marcus Miller V7 is praised for its high-quality construction and versatile tonal options. An excellent choice for players of all skill levels.', 2019, 'Vintage Sunburst', 'Swamp Ash and Maple'),
+('Fender Precision Bass (P-Bass)', 'Bass', 'New/Used', 2000.00, 'The Fender Precision Bass, or P-Bass, is a classic and iconic bass guitar known for its punchy, defined tone and comfortable playability.', NULL, 'Various', 'Alder or ash body, maple neck, rosewood or maple fretboard'),
+('Music Man StingRay', 'Bass', 'New/Used', 2500.00, 'The Music Man StingRay is a high-end bass known for its powerful, versatile sound and sleek design. It''s popular among professional bassists.', NULL, 'Various', 'Ash or mahogany body, maple neck, rosewood or maple fretboard'),
+('Ibanez SR500E Bass', 'Bass', 'New', 800.00, 'The Ibanez SR500E is a modern bass guitar known for its slim, fast neck and versatile electronics, making it suitable for various genres.', NULL, 'Brown Mahogany, Weathered Black, etc.', 'Mahogany body, maple/walnut neck, rosewood or maple fretboard'),
+('Gibson Thunderbird Bass', 'Bass', 'New/Used', 2000.00, 'The Gibson Thunderbird is a distinctive bass guitar with a unique body design, known for its deep, rich tone and visual appeal.', NULL, 'Various', 'Mahogany body, maple neck, rosewood or ebony fretboard'),
+('Schecter Stiletto Studio-5 Bass', 'Bass', 'New', 1000.00, 'The Schecter Stiletto Studio-5 is a five-string bass known for its sleek design, active electronics, and versatile tonal options.', NULL, 'Honey Satin, See-Thru Black Satin, etc.', 'Mahogany body, maple/walnut neck, rosewood or ebony fretboard');

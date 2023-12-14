@@ -1,0 +1,14 @@
+---flute---
+
+INSERT INTO listing (Name, TypeInstrument, Condition, Price, Description, Year, Color, Material)
+VALUES 
+('Gemeinhardt Student Flute', 'Flute', 'New', 400, 'The Gemeinhardt Student Flute is perfect for beginners. It offers a warm and clear tone, making it an excellent choice for students and enthusiasts alike.', 2022, 'Silver', 'Nickel Silver'),
+('Yamaha Professional Flute', 'Flute', 'Used', 1200, 'Elevate your playing with the Yamaha Professional Flute. Known for its precision and clarity, it''s a favorite among advanced players and professionals.', 2019, 'Gold', 'Sterling Silver'),
+('Powell Signature Flute', 'Flute', 'New', 2500, 'The Powell Signature Flute is a premium instrument crafted for discerning flutists. Its responsive mechanism and rich tonal palette make it a top choice.', 2023, 'Rose Gold', 'Sterling Silver'),
+('Trevor James Cantabile Flute', 'Flute', 'Used', 800, 'The Trevor James Cantabile Flute is known for its expressive capabilities and ergonomic design. An excellent choice for players seeking a professional edge.', 2017, 'Nickel Silver', 'Silver-Plated Brass'),
+('Miyazawa Brögger System Flute', 'Flute', 'New', 4000, 'The Miyazawa Brögger System Flute is a masterpiece of modern flute design. Crafted with precision, it offers unparalleled projection and tonal clarity.', 2022, 'Platinum', 'Sterling Silver'),
+('Yamaha YFL-212 Student Flute', 'Flute', 'New', 800.00, 'The Yamaha YFL-212 is a student flute known for its ease of play and durability, making it a popular choice for beginners.', NULL, 'Silver-plated or nickel silver', 'Nickel silver headjoint, body, and footjoint'),
+('Muramatsu EX Professional Flute', 'Flute', 'New/Used', 8000.00, 'The Muramatsu EX is a professional-level flute known for its exceptional craftsmanship and tonal quality, suitable for advanced players.', NULL, 'Silver-plated or solid silver', 'Solid silver headjoint, body, and footjoint'),
+('Pearl Quantz 665 Series Flute', 'Flute', 'New/Used', 2500.00, 'The Pearl Quantz 665 is an intermediate-level flute with features often found in professional instruments, offering a balanced and responsive playing experience.', NULL, 'Silver-plated or silver with various options for engraving', 'Solid silver headjoint, silver-plated or silver body, and footjoint'),
+('Altus 1107 Handmade Flute', 'Flute', 'New/Used', 5000.00, 'The Altus 1107 is a handmade flute crafted with precision and attention to detail, offering a nuanced and expressive playing experience.', NULL, 'Silver-plated or solid silver with various finish options', 'Solid silver headjoint, body, and footjoint'),
+('Gemeinhardt 2SP Student Flute', 'Flute', 'New', 400.00, 'The Gemeinhardt 2SP is a popular student flute known for its affordability and reliability, making it a common choice for beginners.', NULL, 'Silver-plated', 'Nickel silver headjoint, body, and footjoint');

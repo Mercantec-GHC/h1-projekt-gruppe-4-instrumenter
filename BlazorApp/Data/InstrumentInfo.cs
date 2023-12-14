@@ -16,13 +16,14 @@ namespace BlazorApp.Data
         public string Condition { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Year is required")]
-        public DateTime Year { get; set; }
+        public int? Year { get; set; }
+
 
         [Required(ErrorMessage = "Color is required")]
         public string Color { get; set; }
