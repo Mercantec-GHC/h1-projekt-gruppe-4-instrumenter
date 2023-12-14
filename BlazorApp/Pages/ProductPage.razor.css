@@ -1,3 +1,29 @@
-body{
+#pageContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
+#productName {
+    font-size: 48px;
+}
+
+#descriptionContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#productImg {
+    height: 200px;
+    width: auto;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+#descTxt {
+    font-size: 18px;
+    word-wrap: normal;
 }

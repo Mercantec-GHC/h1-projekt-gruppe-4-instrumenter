@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Data;
+using BlazorApp.Model;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
@@ -41,6 +42,15 @@ namespace BlazorApp.Data
         {
             objInstrumentDAL.DeleteInstrument(objInstrument.ID);
             return "Delete Successfully";
+        }
+
+        public Product GetOneProduct(int id)
+        {
+            if (id == 0)
+            {
+                return null;
+            }
+            return objInstrumentDAL.GetOneProduct(id);
         }
     }
 }

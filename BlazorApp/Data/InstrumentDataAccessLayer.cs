@@ -6,6 +6,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazorApp.Model;
 
 namespace BlazorApp.Data
 {
@@ -36,7 +37,7 @@ namespace BlazorApp.Data
                     instrument.Condition = rdr["Condition"].ToString();
                     instrument.Price = Convert.ToDecimal(rdr["Price"]);
                     instrument.Description = rdr["Description"].ToString();
-                    instrument.Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]): (int?)null;
+                    instrument.Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]) : (int?)null;
                     instrument.Color = rdr["Color"].ToString();
                     instrument.Material = rdr["Material"].ToString();
                     instrumentList.Add(instrument);
@@ -116,6 +117,43 @@ namespace BlazorApp.Data
                 }
             }
             return instrument;
+        }
+
+        public Product GetOneProduct(int id)
+        {
+            Product product = new Product();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM listing WHERE id = {id}", con);
+
+                // Make a stored procedure for this call
+                //cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    product = new Product
+                    {
+                        Id = (int)rdr["id"],
+                        Name = (string)rdr["name"],
+                        Description = (string)rdr["description"],
+                        Color = (string)rdr["color"],
+                        Condition = (string)rdr["condition"],
+                        Price = (int)rdr["price"],
+                        TypeInstrument = (string)rdr["color"],
+                    };
+                }
+
+                con.Close();
+
+                if (product.Id == 0)
+                {
+                    return null;
+                }
+                return product;
+            }
         }
 
         // To Delete the record of a particular Instrument
