@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ImageRoot\Image\Instruments\Bass\" />
+    <Folder Include="ImageRoot\Image\Instruments\Flute\" />
+    <Folder Include="ImageRoot\Image\Instruments\Drum\" />
+  </ItemGroup>
+
 </Project>
