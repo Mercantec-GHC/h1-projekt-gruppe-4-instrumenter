@@ -154,11 +154,13 @@ namespace BlazorApp.Data
                     {
                         Id = (int)rdr["id"],
                         Name = (string)rdr["name"],
+                        Year = (int)rdr["Year"],
                         Description = (string)rdr["description"],
+                        Material = (string)rdr["Material"],
                         Color = (string)rdr["color"],
                         Condition = (string)rdr["condition"],
                         Price = (int)rdr["price"],
-                        TypeInstrument = (string)rdr["color"],
+                        TypeInstrument = (string)rdr["TypeInstrument"],
                     };
                 }
 
