@@ -5,7 +5,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Listing](
+CREATE TABLE [dbo].[listing](
 	[name] [text] NULL,
 	[TypeInstrument] [text] NULL,
 	[Condition] [text] NULL,

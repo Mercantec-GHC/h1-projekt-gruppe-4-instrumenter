@@ -113,7 +113,7 @@ namespace BlazorApp.Data
                     instrument.Condition = rdr["Condition"].ToString();
                     instrument.Price = Convert.ToDecimal(rdr["Price"]);
                     instrument.Description = rdr["Description"].ToString();
-                    instrument.Year = Convert.ToInt32(rdr["Year"]);
+                    instrument.Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]) : (int?)null;
                     instrument.Color = rdr["Color"].ToString();
                     instrument.Material = rdr["Material"].ToString();
                 }
@@ -140,7 +140,7 @@ namespace BlazorApp.Data
                     {
                         Id = (int)rdr["id"],
                         Name = (string)rdr["name"],
-                        Year = (int)rdr["Year"],
+                        Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]) : 0,
                         Description = (string)rdr["description"],
                         Material = (string)rdr["Material"],
                         Color = (string)rdr["color"],

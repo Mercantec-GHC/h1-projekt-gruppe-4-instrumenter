@@ -93,8 +93,57 @@
   </div>
 </div>
 
-
-
-
-
-
+<h1>Your Listings</h1>
+@if (objCtmr == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Type Of Instrument</th>
+                <th>Condition</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Color</th>
+                <th>Material</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var instrument in objCtmr)
+            {
+                <tr>
+                    <td>@instrument.Name</td>
+                    <td>@instrument.TypeInstrument</td>
+                    <td>@instrument.Condition</td>
+                    <td>@instrument.Price</td>
+                    <td>@instrument.Description</td>
+                    <td>@instrument.Year</td>
+                    <td>@instrument.Color</td>
+                    <td>@instrument.Material</td>
+                    <td>
+                        <a class="nav-link" href="EditListing/@instrument.ID">
+                            <span class="oi oi-pencil" aria-hidden="true"></span> Edit
+                        </a>
+                        <a class="nav-link" href="DeleteListing/@instrument.ID">
+                            <span class="oi oi-trash" aria-hidden="true"></span> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    List<InstrumentInfo> objCtmr;
+    protected override async Task OnInitializedAsync()
+    {
+        InstrumentService objCS = new InstrumentService(Configuration);
+        objCtmr = await Task.Run(() => objCS.GetInstruments());
+    }
+}
