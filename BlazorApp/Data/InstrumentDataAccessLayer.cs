@@ -39,7 +39,8 @@ namespace BlazorApp.Data
                     instrument.Description = rdr["Description"].ToString();
                     instrument.Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]) : (int?)null;
                     instrument.Color = rdr["Color"].ToString();
-                    instrument.Material = rdr["Material"].ToString();
+                    instrument.Material = rdr["material"].ToString();
+                    instrument.Photo = rdr["Photo"] as byte[]; 
                     instrumentList.Add(instrument);
                 }
             }
@@ -61,6 +62,7 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
+                cmd.Parameters.AddWithValue("@Photo", instrument.Photo);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -75,6 +77,8 @@ namespace BlazorApp.Data
                 SqlCommand cmd = new SqlCommand("UpdateInstrument", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ID", instrument.ID);
+
                 cmd.Parameters.AddWithValue("@Name", instrument.Name);
                 cmd.Parameters.AddWithValue("@TypeInstrument", instrument.TypeInstrument);
                 cmd.Parameters.AddWithValue("@Condition", instrument.Condition);
@@ -83,6 +87,17 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
+
+                SqlParameter photoParam = new SqlParameter("@Photo", SqlDbType.VarBinary, -1);
+                if (instrument.Photo != null && instrument.Photo.Length > 0)
+                {
+                    photoParam.Value = instrument.Photo;
+                }
+                else
+                {
+                    photoParam.Value = DBNull.Value;
+                }
+                cmd.Parameters.Add(photoParam);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -114,6 +129,7 @@ namespace BlazorApp.Data
                     instrument.Year = Convert.ToInt32(rdr["Year"]);
                     instrument.Color = rdr["Color"].ToString();
                     instrument.Material = rdr["Material"].ToString();
+                    instrument.Photo = rdr["Photo"] as byte[];
                 }
             }
             return instrument;

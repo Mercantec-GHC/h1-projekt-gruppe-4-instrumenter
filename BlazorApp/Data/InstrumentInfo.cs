@@ -30,5 +30,6 @@ namespace BlazorApp.Data
 
         [Required(ErrorMessage = "Material is required")]
         public string Material { get; set; }
+        public byte[] Photo { get; set; }
     }
 }

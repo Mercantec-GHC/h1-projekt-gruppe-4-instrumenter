@@ -47,28 +47,47 @@
                 <label for="Material" class="control-label">Material</label>
                 <input for="Material" class="form-control" @bind="@objCI.Material" />
             </div>
+            <div class="form-group">
+                <label for="Photo" class="control-label">Photo</label>
+                <input type="file" @onchange:event="HandleFileSelected" class="form-control" />
+                <img src="@ImagePreview" style="max-width: 300px; max-height: 300px;" alt="Preview" />
+            </div>
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <input type="button" @onclick="@CreateInstrument" class="btn btn-primary" value="Save" />
-                <input type="button" @onclick="@Cancel" class="btn btn-primary" value="Cancel" />
+                <input type="button" @onclick="CreateInstrument" class="btn btn-primary" value="Save" />
+                <input type="button" @onclick="Cancel" class="btn btn-primary" value="Cancel" />
             </div>
         </div>
     </div>
 </form>
 
 @code {
+    private byte[] uploadedFile;
+    private string ImagePreview;
     InstrumentInfo objCI = new InstrumentInfo();
     protected void CreateInstrument()
     {
+        objCI.Photo = uploadedFile;
         ObjCustomService.Create(objCI);
         NavigationManager.NavigateTo("listings");
     }
     void Cancel()
     {
         NavigationManager.NavigateTo("listings");
+    }
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            var buffer = new byte[file.Size];
+            await file.OpenReadStream().ReadAsync(buffer);
+            uploadedFile = buffer;
+            ImagePreview = $"data:{file.ContentType};base64,{Convert.ToBase64String(buffer)}";
+        }
     }
 }   
