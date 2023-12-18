@@ -62,16 +62,7 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
-                SqlParameter photoParam = new SqlParameter("@Photo", SqlDbType.VarBinary, -1);
-                if (instrument.Photo != null && instrument.Photo.Length > 0)
-                {
-                    photoParam.Value = instrument.Photo;
-                }
-                else
-                {
-                    photoParam.Value = DBNull.Value;
-                }
-                cmd.Parameters.Add(photoParam);
+                cmd.Parameters.AddWithValue("@Photo", instrument.Photo);
 
 
                 con.Open();
@@ -97,17 +88,7 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
-
-                SqlParameter photoParam = new SqlParameter("@Photo", SqlDbType.VarBinary, -1);
-                if (instrument.Photo != null && instrument.Photo.Length > 0)
-                {
-                    photoParam.Value = instrument.Photo;
-                }
-                else
-                {
-                    photoParam.Value = DBNull.Value;
-                }
-                cmd.Parameters.Add(photoParam);
+                cmd.Parameters.AddWithValue("@Photo", instrument.Photo);
 
                 con.Open();
                 cmd.ExecuteNonQuery();

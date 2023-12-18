@@ -35,12 +35,11 @@
         {
             connection.Open();
 
-            string sql = "INSERT INTO Persons (FirstName, LastName, Photo) VALUES (@FirstName, @LastName, @Photo)";
+            string sql = "INSERT INTO TEST (Photo) VALUES (@Photo)";
 
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@FirstName", firstName);
-                command.Parameters.AddWithValue("@LastName", lastName);
                 command.Parameters.AddWithValue("@Photo", photo);
 
                 command.ExecuteNonQuery();
