@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
 <PageTitle>BlazorApp</PageTitle>
+@using JamJunkie
 
 <div class="page">
     <main>
@@ -11,13 +12,24 @@
                 </a>
             </div>
             
-            @* search feature is being worked on, this is just a placeholder for now*@
-            <div class="d-flex align-items-center flex-grow-1 justify-content-center">
-                <form class="d-flex align-items-center">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+            
+            <style>
+                .checkbox-label {
+                    margin-right: 15px; /* Adjust the value to increase/decrease space between checkboxes */
+                    display: flex;
+                    align-items: center;
+                }
+            </style>
+            @foreach (var Instrument in Enum.GetValues(typeof(JamJunkie.Instrument.InstrumentType)))
+            {
+                <div class="d-flex align-items-center flex-grow-1 justify-content-center">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="Instruments" value="@Instrument" />
+                        @Instrument
+                    </label>
+                </div>
+            }
+            
 
             <div class="nav-options d-flex align-items-center justify-content-between">
                 <a href="listings">Your Listings</a>
@@ -35,3 +47,4 @@
         </article>
     </main>
 </div>
+
