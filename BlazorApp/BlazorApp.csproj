@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ImageRoot\InstrumentImage\BassImg\" />
+    <Folder Include="ImageRoot\Image\Instruments\Bass\" />
+    <Folder Include="ImageRoot\Image\Instruments\Flute\" />
+    <Folder Include="ImageRoot\Image\Instruments\Drum\" />
   </ItemGroup>
 
 </Project>
