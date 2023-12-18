@@ -16,9 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ImageRoot\Image\Instruments\Bass\" />
-    <Folder Include="ImageRoot\Image\Instruments\Flute\" />
-    <Folder Include="ImageRoot\Image\Instruments\Drum\" />
+    <Folder Include="wwwroot\Image\Instruments\Drum\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Image\Instruments\Piano\Piano.JPEG" />
   </ItemGroup>
 
 </Project>
