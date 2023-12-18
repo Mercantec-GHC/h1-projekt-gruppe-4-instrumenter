@@ -40,7 +40,6 @@ namespace BlazorApp.Data
                     instrument.Year = rdr["Year"] != DBNull.Value ? Convert.ToInt32(rdr["Year"]) : (int?)null;
                     instrument.Color = rdr["Color"].ToString();
                     instrument.Material = rdr["material"].ToString();
-                    instrument.Photo = rdr["Photo"] as byte[]; 
                     instrumentList.Add(instrument);
                 }
             }
@@ -62,8 +61,6 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
-                cmd.Parameters.AddWithValue("@Photo", instrument.Photo);
-
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -88,7 +85,6 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
-                cmd.Parameters.AddWithValue("@Photo", instrument.Photo);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -120,7 +116,6 @@ namespace BlazorApp.Data
                     instrument.Year = Convert.ToInt32(rdr["Year"]);
                     instrument.Color = rdr["Color"].ToString();
                     instrument.Material = rdr["Material"].ToString();
-                    instrument.Photo = rdr["Photo"] as byte[];
                 }
             }
             return instrument;

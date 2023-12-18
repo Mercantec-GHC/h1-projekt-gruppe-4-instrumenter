@@ -47,9 +47,6 @@
                 <label for="Material" class="control-label">Material</label>
                 <input for="Material" class="form-control" @bind="@objCI.Material" />
             </div>
-            <div class="form-group">
-                <InputFile OnChange="HandleFileSelect" />
-            </div>
         </div>
     </div>
     <br />
@@ -64,8 +61,6 @@
 </form>
 
 @code {
-    private byte[] photo;
-    @*private string ImagePreview;*@
     InstrumentInfo objCI = new InstrumentInfo();
     protected void CreateInstrument()
     {
@@ -75,14 +70,5 @@
     void Cancel()
     {
         NavigationManager.NavigateTo("listings");
-    }
-    private async Task HandleFileSelect(InputFileChangeEventArgs e)
-    {
-        var file = e.File;
-        using (var memoryStream = new MemoryStream())
-        {
-            await file.OpenReadStream().CopyToAsync(memoryStream);
-            photo = memoryStream.ToArray();
-        }
     }
 }   

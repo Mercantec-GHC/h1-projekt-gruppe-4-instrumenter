@@ -48,11 +48,6 @@
                 <label for="Material" class="control-label">Material</label>
                 <input for="Material" class="form-control" @bind="@objCI.Material" />
             </div>
-            <div class="form-group">
-                <label for="Photo" class="control-label">Photo</label>
-                <input type="file" @onchange:event="HandleFileSelected" class="form-control" />
-                <img src="@ImagePreview" style="max-width: 300px; max-height: 300px;" alt="Preview" />
-            </div>
         </div>
     </div>
     <br />
@@ -67,8 +62,6 @@
 </form>
 
 @code {
-    private byte[] uploadedFile;
-    private string ImagePreview;
     [Parameter]
     public string CurretnID { get; set; }
     InstrumentInfo objCI = new InstrumentInfo();
@@ -85,16 +78,5 @@
     void Cancel()
     {
         NavigationManager.NavigateTo("listings");
-    }
-    private async Task HandleFileSelected(InputFileChangeEventArgs e)
-    {
-        var file = e.File;
-        if (file != null)
-        {
-            var buffer = new byte[file.Size];
-            await file.OpenReadStream().ReadAsync(buffer);
-            uploadedFile = buffer;
-            ImagePreview = $"data:{file.ContentType};base64,{Convert.ToBase64String(buffer)}";
-        }
     }
 }   

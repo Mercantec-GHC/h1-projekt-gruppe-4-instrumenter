@@ -25,7 +25,6 @@ else
                 <th>Year</th>
                 <th>Color</th>
                 <th>Material</th>
-                <th>Photo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,16 +40,6 @@ else
                     <td>@instrument.Year</td>
                     <td>@instrument.Color</td>
                     <td>@instrument.Material</td>
-                    <td>
-                        @if (instrument.Photo != null)
-                        {
-                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(instrument.Photo)" alt="Instrument Photo" />
-                        }
-                        else
-                        {
-                            <span>No Photo</span>
-                        }
-                    </td>
                     <td>
                         <a class="nav-link" href="EditListing/@instrument.ID">
                             <span class="oi oi-pencil" aria-hidden="true"></span> Edit
