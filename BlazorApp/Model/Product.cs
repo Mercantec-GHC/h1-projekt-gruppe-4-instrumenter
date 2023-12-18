@@ -10,6 +10,7 @@
         public string Description { get; set; }
         public string Color { get; set; }
         public string Material { get; set; }
-        public int Year { get; set; }
+        public int Year { get; set; }   
+        
     }
 }
