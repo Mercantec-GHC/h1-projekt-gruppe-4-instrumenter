@@ -144,7 +144,7 @@ namespace BlazorApp.Data
                         Color = (string)rdr["color"],
                         Condition = (string)rdr["condition"],
                         Price = (int)rdr["price"],
-                        TypeInstrument = (string)rdr["color"],
+                        TypeInstrument = (string)rdr["TypeInstrument"],
                     };
                 }
 
