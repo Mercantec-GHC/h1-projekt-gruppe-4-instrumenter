@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Image\Instruments\Drum\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Image\Instruments\Piano\Piano.JPEG" />
   </ItemGroup>
 
