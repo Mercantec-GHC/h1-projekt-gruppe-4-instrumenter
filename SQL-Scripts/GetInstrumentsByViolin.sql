@@ -14,5 +14,5 @@ BEGIN
         Color,
         Material
     FROM listing
-    WHERE TypeInstrument = 'Violin'
+    WHERE CONVERT(NVARCHAR(MAX), TypeInstrument) = 'Violin'
 END
