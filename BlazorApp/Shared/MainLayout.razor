@@ -1,9 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
 <PageTitle>BlazorApp</PageTitle>
+
 @using JamJunkie
+@using BlazorApp
 @using BlazorApp.Data
 @using BlazorApp.Model
+@using Microsoft.Data.SqlClient;
 @inject InstrumentService ObjCustomService
 @inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
@@ -24,16 +27,11 @@
                     align-items: center;
                 }
             </style>
-            @foreach (var instrument in Enum.GetValues(typeof(JamJunkie.Instrument.InstrumentType)))
-            {
-                <div class="d-flex align-items-center flex-grow-1 justify-content-center">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="Instruments" value="@instrument" @onchange="@(async (args) => await FilterInstruments(args, (JamJunkie.Instrument.InstrumentType)instrument))" />
-
-                        @instrument
-                    </label>
-                </div>
-            }
+           
+           
+            <input type="checkbox" name="Guitar" value="Guitar" />
+            <input type="checkbox" name="Piano" value="Piano" />
+            <input type="checkbox" name="Violin" value="Violin" />
 
             
             <div class="nav-options d-flex align-items-center justify-content-between">
@@ -54,9 +52,44 @@
 </div>
 
 @code{
-    List<InstrumentInfo> objCtmr;
+    public bool Guitar = false;
+    public bool Bass = false;
+    public bool Violin = false;
+    public bool Piano = false;
+    public bool Flute = false;
+    public bool Drums = false;
 
-    async Task FilterInstruments(ChangeEventArgs args, JamJunkie.Instrument.InstrumentType instrumentType)
+    public class InstrumentDataAccessLayers
+    {
+        private readonly string connectionString;
+        public InstrumentDataAccessLayers(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DbConnectionString");
+        }
+
+        public void FilterInstruments()
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand($"SELECT ID, Name, TypeInstrument, Condition, Price, Description, Year, Color, Material FROM listing WHERE CONVERT(NVARCHAR(MAX), TypeInstrument) = 'Bass'", con);
+
+                // Make a stored procedure for this call
+                //cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+
+                }
+
+                con.Close();
+            }
+        }
+    }
+    @*async Task FilterInstruments(ChangeEventArgs args, JamJunkie.Instrument.InstrumentType instrumentType)
     {
         bool isChecked = (bool)args.Value;
         if (isChecked)
@@ -82,5 +115,5 @@
         InstrumentService objCS = new InstrumentService(Configuration);
         objCtmr = await Task.Run(() => objCS.GetInstruments());
     }
-
+*@
 }
