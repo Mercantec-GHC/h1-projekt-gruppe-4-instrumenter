@@ -188,5 +188,18 @@ namespace BlazorApp.Data
                 cmd.ExecuteNonQuery();
             }
         }
+        
+        public async Task GetInstrumentsByType(string instrumentType)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand($"GetInstrumentsBy{instrumentType}", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@InstrumentType", instrumentType);
+
+                con.Open();
+                await cmd.ExecuteNonQueryAsync();
+            }
+        }
     }
 }

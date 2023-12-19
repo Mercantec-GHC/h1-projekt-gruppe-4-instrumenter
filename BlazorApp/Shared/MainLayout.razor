@@ -3,6 +3,7 @@
 <PageTitle>BlazorApp</PageTitle>
 @using JamJunkie
 @using BlazorApp.Data
+@using BlazorApp.Model
 @inject InstrumentService ObjCustomService
 @inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
@@ -23,16 +24,7 @@
                     align-items: center;
                 }
             </style>
-            @foreach (var Instrument in Enum.GetValues(typeof(JamJunkie.Instrument.InstrumentType)))
-            {
-                <div class="d-flex align-items-center flex-grow-1 justify-content-center">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="Instruments" value="@Instrument" />
-                        @Instrument
-                    </label>
-                </div>
-            }
-
+            
             <div class="nav-options d-flex align-items-center justify-content-between">
                 <a href="listings">Your Listings</a>
             </div>
@@ -49,3 +41,34 @@
         </article>
     </main>
 </div>
+
+@code{
+    List<InstrumentInfo> objCtmr;
+
+    async Task FilterInstruments(ChangeEventArgs args, JamJunkie.Instrument.InstrumentType instrumentType)
+    {
+        bool isChecked = (bool)args.Value;
+        if (isChecked)
+        {
+            await FetchFilteredInstruments(instrumentType.ToString());
+        }
+        else
+        {
+            await FetchAllInstruments();
+        }
+    }
+
+    async Task FetchFilteredInstruments(string instrumentType)
+    {
+        await ObjCustomService.GetInstrumentsByType(instrumentType);
+        InstrumentService objCS = new InstrumentService(Configuration);
+        objCtmr = await Task.Run(() => objCS.GetInstruments());
+    }
+
+    async Task FetchAllInstruments()
+    {
+        InstrumentService objCS = new InstrumentService(Configuration);
+        objCtmr = await Task.Run(() => objCS.GetInstruments());
+    }
+
+}

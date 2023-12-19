@@ -52,5 +52,9 @@ namespace BlazorApp.Data
             }
             return objInstrumentDAL.GetOneProduct(id);
         }
+        public async Task GetInstrumentsByType(string instrumentType)
+        {
+            await _instrumentDataAccessLayer.GetInstrumentsByType(instrumentType);
+        }
     }
 }
