@@ -24,6 +24,17 @@
                     align-items: center;
                 }
             </style>
+            @foreach (var instrument in Enum.GetValues(typeof(JamJunkie.Instrument.InstrumentType)))
+            {
+                <div class="d-flex align-items-center flex-grow-1 justify-content-center">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="Instruments" value="@instrument" @onchange="@(async (args) => await FilterInstruments(args, (JamJunkie.Instrument.InstrumentType)instrument))" />
+
+                        @instrument
+                    </label>
+                </div>
+            }
+
             
             <div class="nav-options d-flex align-items-center justify-content-between">
                 <a href="listings">Your Listings</a>
@@ -50,7 +61,7 @@
         bool isChecked = (bool)args.Value;
         if (isChecked)
         {
-            await FetchFilteredInstruments(instrumentType.ToString());
+            await FetchFilteredInstruments(instrumentType);
         }
         else
         {
@@ -58,12 +69,13 @@
         }
     }
 
-    async Task FetchFilteredInstruments(string instrumentType)
+    async Task FetchFilteredInstruments(JamJunkie.Instrument.InstrumentType instrumentType)
     {
-        await ObjCustomService.GetInstrumentsByType(instrumentType);
+        await ObjCustomService.GetInstrumentsByType(instrumentType.ToString());
         InstrumentService objCS = new InstrumentService(Configuration);
         objCtmr = await Task.Run(() => objCS.GetInstruments());
     }
+
 
     async Task FetchAllInstruments()
     {

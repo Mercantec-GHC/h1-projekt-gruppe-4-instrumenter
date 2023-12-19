@@ -54,7 +54,7 @@ namespace BlazorApp.Data
         }
         public async Task GetInstrumentsByType(string instrumentType)
         {
-            await _instrumentDataAccessLayer.GetInstrumentsByType(instrumentType);
+            await objInstrumentDAL.GetInstrumentsByType(instrumentType);
         }
     }
 }
