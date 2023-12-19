@@ -27,8 +27,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="Condition" class="control-label">Condition</label>
-                <input for="Condition" class="form-control" @bind="@objCI.Condition" />
+                <label asp-for="Condition" class="control-label">Condition</label>
+                <select @bind="@objCI.Condition" class="form-control">
+                    <option value="">-- Select the instruments Condition --</option>
+                    <option value="New">New</option>
+                    <option value="Used">Used</option>
+                    <option value="Restored">Restored</option>
+                    <option value="Broken">Broken</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="Price" class="control-label">Price</label>

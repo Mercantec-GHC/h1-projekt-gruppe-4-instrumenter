@@ -58,9 +58,17 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Condition", instrument.Condition);
                 cmd.Parameters.AddWithValue("@Price", instrument.Price);
                 cmd.Parameters.AddWithValue("@Description", instrument.Description);
-                cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
+                if (instrument.Year.HasValue)
+                {
+                    cmd.Parameters.AddWithValue("@Year", instrument.Year.Value);
+                }
+                else
+                {
+                    // If Year is null, pass DBNull.Value as the parameter value
+                    cmd.Parameters.AddWithValue("@Year", DBNull.Value);
+                }
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -82,9 +90,17 @@ namespace BlazorApp.Data
                 cmd.Parameters.AddWithValue("@Condition", instrument.Condition);
                 cmd.Parameters.AddWithValue("@Price", instrument.Price);
                 cmd.Parameters.AddWithValue("@Description", instrument.Description);
-                cmd.Parameters.AddWithValue("@Year", instrument.Year);
                 cmd.Parameters.AddWithValue("@Color", instrument.Color);
                 cmd.Parameters.AddWithValue("@Material", instrument.Material);
+                if (instrument.Year.HasValue)
+                {
+                    cmd.Parameters.AddWithValue("@Year", instrument.Year.Value);
+                }
+                else
+                {
+                    // If Year is null, pass DBNull.Value as the parameter value
+                    cmd.Parameters.AddWithValue("@Year", DBNull.Value);
+                }
 
                 con.Open();
                 cmd.ExecuteNonQuery();
