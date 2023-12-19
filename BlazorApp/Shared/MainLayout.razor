@@ -2,6 +2,9 @@
 
 <PageTitle>BlazorApp</PageTitle>
 @using JamJunkie
+@using BlazorApp.Data
+@inject InstrumentService ObjCustomService
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
 <div class="page">
     <main>
@@ -47,4 +50,3 @@
         </article>
     </main>
 </div>
-
