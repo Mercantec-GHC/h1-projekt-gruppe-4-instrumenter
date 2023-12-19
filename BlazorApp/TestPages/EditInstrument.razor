@@ -3,7 +3,10 @@
 @using System;
 @inject InstrumentService ObjCustomService
 @inject NavigationManager NavigationManager
-<h2>Create Customer</h2>
+
+<PageTitle>Edit Listing</PageTitle>
+
+<h2>Edit Listing</h2>
 <hr />
 <form>
     <div class="row">
@@ -13,7 +16,7 @@
                 <input for="Name" class="form-control" @bind="@objCI.Name" />
             </div>
             <div class="form-group">
-                <label asp-for="TypeInstrument" class="control-label"></label>
+                <label asp-for="TypeInstrument" class="control-label">Type of instrument</label>
                 <select @bind="@objCI.TypeInstrument" class="form-control">
                     <option value="">-- Select type of instrument --</option>
                     <option value="Bass">Bass</option>
