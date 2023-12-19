@@ -14,5 +14,5 @@ BEGIN
         Color,
         Material
     FROM listing
-    WHERE TypeInstrument = 'Flute'
+    WHERE CONVERT(NVARCHAR(MAX), TypeInstrument) = 'Flute'
 END

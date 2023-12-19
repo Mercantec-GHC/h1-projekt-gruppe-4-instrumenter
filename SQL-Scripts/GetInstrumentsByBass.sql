@@ -1,5 +1,5 @@
 -- Procedure to get instruments based on selected values
-CREATE PROCEDURE [dbo].[GetInstrumentsByPiano]
+CREATE PROCEDURE [dbo].[GetInstrumentsByBass]
     @InstrumentType NVARCHAR(MAX)
 AS   
 BEGIN   
@@ -14,5 +14,5 @@ BEGIN
         Color,
         Material
     FROM listing
-    WHERE TypeInstrument = 'Piano'
+    WHERE CONVERT(NVARCHAR(MAX), TypeInstrument) = 'Bass'
 END
