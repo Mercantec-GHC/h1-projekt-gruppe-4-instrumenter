@@ -115,6 +115,37 @@ else
             @foreach (var instrument in objCtmr)
             {
                 <tr>
+                   
+                        @if (@instrument.TypeInstrument == "Bass")
+                        {
+                            <img src="Image\Instruments\Bass\Bass.JPEG" class="card-img-top" height="100px" width="50px" alt="...">
+                        }
+                        else if (@instrument.TypeInstrument == "Piano")
+                        {
+                            <img src="Image\Instruments\Piano\Piano.JPEG" class="card-img-top" height="100px" width="50px" alt="...">
+                        }
+                        else if (@instrument.TypeInstrument == "Flute")
+                        {
+                            <img src="Image\Instruments\Flute\Flute.JPEG" class="card-img-top" height="100px" width="50px" alt="...">
+                        }
+                        else if (@instrument.TypeInstrument == "Violin")
+                        {
+                            <img src="Image\Instruments\Violin\Violin.JPEG" class="card-img-top" height="100px" width="50px" alt="...">
+                        }
+                        else if (@instrument.TypeInstrument == "Drums")
+                        {
+                            <img src="Image\Instruments\Drums\Drums.JPEG" class="card-img-top" height="100px" width="70px" alt="...">
+                        }
+                        else if (@instrument.TypeInstrument == "Guitar")
+                        {
+                            <img src="Image\Instruments\Guitar\Guitar.JPEG" class="card-img-top" height="100px" width="50px" alt="...">
+                        }
+                        else
+                        {
+                            <img src="data:image/png;base64,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" class="card-img-top" alt="...">
+
+                        }
+
                     <td>@instrument.Name</td>
                     <td>@instrument.TypeInstrument</td>
                     <td>@instrument.Condition</td>
@@ -138,3 +169,4 @@ else
         objCtmr = await Task.Run(() => objCS.GetInstruments());
     }
 }
+
