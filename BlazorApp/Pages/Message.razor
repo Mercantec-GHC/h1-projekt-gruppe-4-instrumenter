@@ -1,60 +1,23 @@
-@page "/message"
-@inject IConfiguration Configuration
-@using Microsoft.Data.SqlClient
-
-<PageTitle>Counter</PageTitle>
-
-<h1>Counter</h1>
-
-<input type="text" placeholder="Enter your first name" @bind="firstName" />
-<br />
-<input type="text" placeholder="Enter your last name" @bind="lastName" />
-<br />
-<br />
-<InputFile OnChange="HandleFileSelect" />
-<br />
-<br />
-<button class="btn btn-primary" @onclick="Click">Click me</button>
-
+@page "/category"
+@using BlazorApp.Pages;
+@using BlazorApp.Data;
+@using BlazorApp.Model;
+ 
+<h3>Test Page</h3>
+ 
+<div class="cat-page">
+ 
+    <EditForm Model="tag">
+<InputCheckbox @bind-Value="tag.Value"></InputCheckbox>
+</EditForm>
+</div>
+ 
 @code {
-
-    private string firstName = "";
-    private string lastName = "";
-    private byte[] photo;
-
-    private void Click()
+ 
+    public ToggleButton tag { get; set; } = new ToggleButton();
+ 
+    public class ToggleButton
     {
-        InsertData(firstName, lastName, photo);
+        public bool Value { get; set; }
     }
-
-
-    public void InsertData(string firstName, string lastName, byte[] photo)
-    {
-        string connectionString = Configuration.GetConnectionString("DbConnectionString");
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            string sql = "INSERT INTO TEST (Photo) VALUES (@Photo)";
-
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                command.Parameters.AddWithValue("@FirstName", firstName);
-                command.Parameters.AddWithValue("@Photo", photo);
-
-                command.ExecuteNonQuery();
-            }
-        }
-    }
-    private async Task HandleFileSelect(InputFileChangeEventArgs e)
-    {
-        var file = e.File;
-        using (var memoryStream = new MemoryStream())
-        {
-            await file.OpenReadStream().CopyToAsync(memoryStream);
-            photo = memoryStream.ToArray();
-        }
-    }
-
 }
